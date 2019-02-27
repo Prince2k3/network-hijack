@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Network Hijack.xcodeproj">
+      location = "self:/Users/princeugwuh/Documents/Xcode/OS/network-hijack/NetworkHijack.xcodeproj">
    </FileRef>
 </Workspace>

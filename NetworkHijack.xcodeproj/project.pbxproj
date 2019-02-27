@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1EE1E0192226F458003F8AB9 /* Network_Hijack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EE1E00F2226F458003F8AB9 /* Network_Hijack.framework */; };
+		1EE1E0192226F458003F8AB9 /* NetworkHijack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EE1E00F2226F458003F8AB9 /* NetworkHijack.framework */; };
 		1EE1E01E2226F458003F8AB9 /* EncodableResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE1E01D2226F458003F8AB9 /* EncodableResponseTests.swift */; };
 		1EE1E0202226F458003F8AB9 /* Network_Hijack.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EE1E0122226F458003F8AB9 /* Network_Hijack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1EE1E02C2226F4C7003F8AB9 /* NetworkHijack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE1E02B2226F4C7003F8AB9 /* NetworkHijack.swift */; };
@@ -33,10 +33,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1EE1E00F2226F458003F8AB9 /* Network_Hijack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Network_Hijack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1EE1E00F2226F458003F8AB9 /* NetworkHijack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NetworkHijack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EE1E0122226F458003F8AB9 /* Network_Hijack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Network_Hijack.h; sourceTree = "<group>"; };
 		1EE1E0132226F458003F8AB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1EE1E0182226F458003F8AB9 /* Network HijackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Network HijackTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1EE1E0182226F458003F8AB9 /* NetworkHijackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkHijackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EE1E01D2226F458003F8AB9 /* EncodableResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableResponseTests.swift; sourceTree = "<group>"; };
 		1EE1E01F2226F458003F8AB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EE1E02B2226F4C7003F8AB9 /* NetworkHijack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHijack.swift; sourceTree = "<group>"; };
@@ -63,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EE1E0192226F458003F8AB9 /* Network_Hijack.framework in Frameworks */,
+				1EE1E0192226F458003F8AB9 /* NetworkHijack.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,8 +82,8 @@
 		1EE1E0102226F458003F8AB9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1EE1E00F2226F458003F8AB9 /* Network_Hijack.framework */,
-				1EE1E0182226F458003F8AB9 /* Network HijackTests.xctest */,
+				1EE1E00F2226F458003F8AB9 /* NetworkHijack.framework */,
+				1EE1E0182226F458003F8AB9 /* NetworkHijackTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -154,9 +154,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		1EE1E00E2226F458003F8AB9 /* Network Hijack */ = {
+		1EE1E00E2226F458003F8AB9 /* NetworkHijack */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1EE1E0232226F458003F8AB9 /* Build configuration list for PBXNativeTarget "Network Hijack" */;
+			buildConfigurationList = 1EE1E0232226F458003F8AB9 /* Build configuration list for PBXNativeTarget "NetworkHijack" */;
 			buildPhases = (
 				1EE1E00A2226F458003F8AB9 /* Headers */,
 				1EE1E00B2226F458003F8AB9 /* Sources */,
@@ -167,14 +167,14 @@
 			);
 			dependencies = (
 			);
-			name = "Network Hijack";
+			name = NetworkHijack;
 			productName = "Network Hijack";
-			productReference = 1EE1E00F2226F458003F8AB9 /* Network_Hijack.framework */;
+			productReference = 1EE1E00F2226F458003F8AB9 /* NetworkHijack.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		1EE1E0172226F458003F8AB9 /* Network HijackTests */ = {
+		1EE1E0172226F458003F8AB9 /* NetworkHijackTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1EE1E0262226F458003F8AB9 /* Build configuration list for PBXNativeTarget "Network HijackTests" */;
+			buildConfigurationList = 1EE1E0262226F458003F8AB9 /* Build configuration list for PBXNativeTarget "NetworkHijackTests" */;
 			buildPhases = (
 				1EE1E0142226F458003F8AB9 /* Sources */,
 				1EE1E0152226F458003F8AB9 /* Frameworks */,
@@ -185,9 +185,9 @@
 			dependencies = (
 				1EE1E01B2226F458003F8AB9 /* PBXTargetDependency */,
 			);
-			name = "Network HijackTests";
+			name = NetworkHijackTests;
 			productName = "Network HijackTests";
-			productReference = 1EE1E0182226F458003F8AB9 /* Network HijackTests.xctest */;
+			productReference = 1EE1E0182226F458003F8AB9 /* NetworkHijackTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -208,7 +208,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1EE1E0092226F458003F8AB9 /* Build configuration list for PBXProject "Network Hijack" */;
+			buildConfigurationList = 1EE1E0092226F458003F8AB9 /* Build configuration list for PBXProject "NetworkHijack" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -220,8 +220,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1EE1E00E2226F458003F8AB9 /* Network Hijack */,
-				1EE1E0172226F458003F8AB9 /* Network HijackTests */,
+				1EE1E00E2226F458003F8AB9 /* NetworkHijack */,
+				1EE1E0172226F458003F8AB9 /* NetworkHijackTests */,
 			);
 		};
 /* End PBXProject section */
@@ -274,7 +274,7 @@
 /* Begin PBXTargetDependency section */
 		1EE1E01B2226F458003F8AB9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1EE1E00E2226F458003F8AB9 /* Network Hijack */;
+			target = 1EE1E00E2226F458003F8AB9 /* NetworkHijack */;
 			targetProxy = 1EE1E01A2226F458003F8AB9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -489,7 +489,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1EE1E0092226F458003F8AB9 /* Build configuration list for PBXProject "Network Hijack" */ = {
+		1EE1E0092226F458003F8AB9 /* Build configuration list for PBXProject "NetworkHijack" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1EE1E0212226F458003F8AB9 /* Debug */,
@@ -498,7 +498,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1EE1E0232226F458003F8AB9 /* Build configuration list for PBXNativeTarget "Network Hijack" */ = {
+		1EE1E0232226F458003F8AB9 /* Build configuration list for PBXNativeTarget "NetworkHijack" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1EE1E0242226F458003F8AB9 /* Debug */,
@@ -507,7 +507,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1EE1E0262226F458003F8AB9 /* Build configuration list for PBXNativeTarget "Network HijackTests" */ = {
+		1EE1E0262226F458003F8AB9 /* Build configuration list for PBXNativeTarget "NetworkHijackTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1EE1E0272226F458003F8AB9 /* Debug */,

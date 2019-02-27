@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1EE1E00E2226F458003F8AB9"
-               BuildableName = "Network_Hijack.framework"
-               BlueprintName = "Network Hijack"
-               ReferencedContainer = "container:Network Hijack.xcodeproj">
+               BuildableName = "NetworkHijack.framework"
+               BlueprintName = "NetworkHijack"
+               ReferencedContainer = "container:NetworkHijack.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1EE1E0172226F458003F8AB9"
-               BuildableName = "Network HijackTests.xctest"
-               BlueprintName = "Network HijackTests"
-               ReferencedContainer = "container:Network Hijack.xcodeproj">
+               BuildableName = "NetworkHijackTests.xctest"
+               BlueprintName = "NetworkHijackTests"
+               ReferencedContainer = "container:NetworkHijack.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1EE1E00E2226F458003F8AB9"
-            BuildableName = "Network_Hijack.framework"
-            BlueprintName = "Network Hijack"
-            ReferencedContainer = "container:Network Hijack.xcodeproj">
+            BuildableName = "NetworkHijack.framework"
+            BlueprintName = "NetworkHijack"
+            ReferencedContainer = "container:NetworkHijack.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -65,9 +65,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1EE1E00E2226F458003F8AB9"
-            BuildableName = "Network_Hijack.framework"
-            BlueprintName = "Network Hijack"
-            ReferencedContainer = "container:Network Hijack.xcodeproj">
+            BuildableName = "NetworkHijack.framework"
+            BlueprintName = "NetworkHijack"
+            ReferencedContainer = "container:NetworkHijack.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -83,9 +83,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1EE1E00E2226F458003F8AB9"
-            BuildableName = "Network_Hijack.framework"
-            BlueprintName = "Network Hijack"
-            ReferencedContainer = "container:Network Hijack.xcodeproj">
+            BuildableName = "NetworkHijack.framework"
+            BlueprintName = "NetworkHijack"
+            ReferencedContainer = "container:NetworkHijack.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
