@@ -29,11 +29,11 @@ class EncodableResponseTests: XCTestCase {
             path: .fetchUsers,
             httpMethod: .get,
             response: try! EncodableResponse(
-                model: User(
+                model: [User(
                         firstName: "Prince",
                         lastName: "Ugwuh",
                         email: "prince.ugwuh@gmail.com"
-                    )
+                    )]
                 )
             )
         )

@@ -25,7 +25,4 @@ extension NetworkHijack.Error: Equatable {
 
 extension NetworkHijack.Error {
     static let noResponseFound = NetworkHijack.Error(message: "No route response found")
-    static let noClient = NetworkHijack.Error(message: "No client found")
-    static let jsonFileBadRead = NetworkHijack.Error(message: "Unable to read JSON file")
-    static let routeMissingPath = NetworkHijack.Error(message: "A route is missing its path")
 }
