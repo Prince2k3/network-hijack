@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E9F4247222789EB007ABAA8 /* Error.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1EE1E02D2226F511003F8AB9 /* Error.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E9F4248222789EB007ABAA8 /* Context.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1EE1E0312226F64B003F8AB9 /* Context.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E9F4249222789EB007ABAA8 /* Redirect.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1EE1E02F2226F60F003F8AB9 /* Redirect.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E9F424A222789EB007ABAA8 /* Route.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1EE1E0332226F671003F8AB9 /* Route.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E9F424B222789EB007ABAA8 /* Route+Component.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1EE1E03A2226F70F003F8AB9 /* Route+Component.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E9F424C222789EB007ABAA8 /* Response.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1EE1E0352226F6AA003F8AB9 /* Response.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E9F424D222789EB007ABAA8 /* Reponse+Encodable.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1EE1E03D22270372003F8AB9 /* Reponse+Encodable.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E9F424E222789EB007ABAA8 /* NetworkHijack.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1EE1E02B2226F4C7003F8AB9 /* NetworkHijack.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		1EE1E0192226F458003F8AB9 /* NetworkHijack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EE1E00F2226F458003F8AB9 /* NetworkHijack.framework */; };
 		1EE1E01E2226F458003F8AB9 /* EncodableResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE1E01D2226F458003F8AB9 /* EncodableResponseTests.swift */; };
 		1EE1E0202226F458003F8AB9 /* Network_Hijack.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EE1E0122226F458003F8AB9 /* Network_Hijack.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -148,6 +156,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EE1E0202226F458003F8AB9 /* Network_Hijack.h in Headers */,
+				1E9F4247222789EB007ABAA8 /* Error.swift in Headers */,
+				1E9F4248222789EB007ABAA8 /* Context.swift in Headers */,
+				1E9F4249222789EB007ABAA8 /* Redirect.swift in Headers */,
+				1E9F424A222789EB007ABAA8 /* Route.swift in Headers */,
+				1E9F424B222789EB007ABAA8 /* Route+Component.swift in Headers */,
+				1E9F424C222789EB007ABAA8 /* Response.swift in Headers */,
+				1E9F424D222789EB007ABAA8 /* Reponse+Encodable.swift in Headers */,
+				1E9F424E222789EB007ABAA8 /* NetworkHijack.swift in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
