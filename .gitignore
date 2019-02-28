@@ -74,3 +74,6 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+/Network Hijack/Sources/.DS_Store
+/Network Hijack/.DS_Store
+/.DS_Store
