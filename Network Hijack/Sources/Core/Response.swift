@@ -36,7 +36,7 @@ extension Response {
         try setContentData(using: filePath)
     }
     
-    public init(statusCode: Int = 200, contentData: Data = Data()) throws {
+    public init(statusCode: Int = 200, contentData: Data) throws {
         self.init(statusCode: statusCode, headerFields: nil)
         self.contentData = contentData
     }
