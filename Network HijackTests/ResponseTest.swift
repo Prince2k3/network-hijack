@@ -8,7 +8,7 @@
 
 import XCTest
 
-@testable import Network_Hijack
+@testable import NetworkHijack
 
 fileprivate extension Route.Path {
     static let fetchUsers = Route.Path("/users")

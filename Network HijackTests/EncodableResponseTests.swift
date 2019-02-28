@@ -1,10 +1,10 @@
 import XCTest
 import Foundation
 
-@testable import Network_Hijack
+@testable import NetworkHijack
 
 fileprivate extension Route.Path {
-    static let fetchUsers = Route.Path("/users")
+    static let fetchUsers = Route.Path("users")
 }
 
 struct User: Codable {
@@ -29,11 +29,11 @@ class EncodableResponseTests: XCTestCase {
             path: .fetchUsers,
             httpMethod: .get,
             response: try! EncodableResponse(
-                model: [User(
+                model: User(
                         firstName: "Prince",
                         lastName: "Ugwuh",
                         email: "prince.ugwuh@gmail.com"
-                    )]
+                    )
                 )
             )
         )
