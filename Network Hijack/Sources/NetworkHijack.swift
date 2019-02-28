@@ -50,13 +50,13 @@ public final class NetworkHijack: URLProtocol {
 // Conveinence
 
 extension NetworkHijack {
-    public static func enable(sessionConfiguration: inout URLSessionConfiguration) {
+    public static func enable(sessionConfiguration: URLSessionConfiguration) {
         var protocolClasses = sessionConfiguration.protocolClasses ?? []
         protocolClasses.insert(self, at: 0)
         sessionConfiguration.protocolClasses = protocolClasses
     }
     
-    public static func disable(sessionConfiguration: inout URLSessionConfiguration) {
+    public static func disable(sessionConfiguration: URLSessionConfiguration) {
         guard var protocolClasses = sessionConfiguration.protocolClasses else { return }
         
         for (index, protocolClass) in protocolClasses.enumerated() where protocolClass == self {
