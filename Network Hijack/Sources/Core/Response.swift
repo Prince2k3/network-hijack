@@ -7,19 +7,19 @@ public protocol ResponseProtocol {
 }
 
 public struct Response: ResponseProtocol {
-    public var headerFields: [String: String] = ["Content-Type": "application/json"]
+    public var headerFields: [String: String]
     public var statusCode: Int
-    public var contentData: Data = Data()
+    public var contentData: Data
     
-    public init(statusCode: Int = 200, headerFields: [String: String]? = nil) {
-        self.statusCode = statusCode
-        self.headerFields = headerFields ?? self.headerFields
-    }
-    
-    public mutating func setContentData(using filePath: String) throws {
-        let url = URL(fileURLWithPath: filePath)
-        let data = try Data(contentsOf: url)
-        self.contentData = data
+    public init(statusCode: Int = 200, headerFields: [String: String] = ["Content-Type": "application/json"], contentData: Data = Data()) {
+        self.headerFields = headerFields
+        self.contentData = contentData
+        
+        if contentData.isEmpty {
+            self.statusCode = 204
+        } else {
+            self.statusCode = statusCode
+        }
     }
 }
 
@@ -32,17 +32,19 @@ extension Response: Equatable {
 
 extension Response {
     public init(statusCode: Int = 200, filePath: String) throws {
-        self.init(statusCode: statusCode, headerFields: nil)
-        try setContentData(using: filePath)
+        self.init(statusCode: statusCode)
+        let url = URL(fileURLWithPath: filePath)
+        let data = try Data(contentsOf: url)
+        self.contentData = data
     }
     
     public init(statusCode: Int = 200, contentData: Data) throws {
-        self.init(statusCode: statusCode, headerFields: nil)
+        self.init(statusCode: statusCode)
         self.contentData = contentData
     }
     
     public init(statusCode: Int = 200, object: Any) throws {
-        self.init(statusCode: statusCode, headerFields: nil)
+        self.init(statusCode: statusCode)
         self.contentData = try JSONSerialization.data(withJSONObject: object, options: [])
     }
 }
