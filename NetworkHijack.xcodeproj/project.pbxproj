@@ -41,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1EC4569D2308B84C00430E08 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Package.swift; sourceTree = "<group>"; };
 		1EE1E00F2226F458003F8AB9 /* NetworkHijack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NetworkHijack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EE1E0122226F458003F8AB9 /* Network_Hijack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Network_Hijack.h; sourceTree = "<group>"; };
 		1EE1E0132226F458003F8AB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -102,6 +103,7 @@
 				1EE1E0292226F48D003F8AB9 /* Sources */,
 				1EE1E0122226F458003F8AB9 /* Network_Hijack.h */,
 				1EE1E0132226F458003F8AB9 /* Info.plist */,
+				1EC4569D2308B84C00430E08 /* Package.swift */,
 			);
 			path = "Network Hijack";
 			sourceTree = "<group>";
