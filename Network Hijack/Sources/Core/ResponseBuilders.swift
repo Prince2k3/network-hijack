@@ -36,6 +36,19 @@ public func json<T: Encodable>(_ body: T, status: Int = 200, headers: [String: S
     }
 }
 
+public func json(filename: String, status: Int = 200, headers: [String: String]? = nil, bundle: Bundle = .main) -> (_ request: URLRequest) -> Response {
+    return { (request: URLRequest) in
+        do {
+            guard
+                let path = bundle.path(forResource: filename, ofType: nil)
+                else { return .failure(NetworkHijack.Error(message: "JSON file not found")) }
+            let data = try Data(contentsOf: URL(fileURLWithPath: path))
+            return jsonData(data, status: status, headers: headers)(request)
+        }
+        catch { return .failure(NetworkHijack.Error(error: error, message: error.localizedDescription)) }
+    }
+}
+
 public func jsonData(_ data: Data, status: Int = 200, headers: [String: String]? = nil) -> (_ request: URLRequest) -> Response {
     return { (request: URLRequest) in
         var headers = headers ?? [String: String]()
