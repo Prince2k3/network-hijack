@@ -1,50 +1,46 @@
 import Foundation
 
-public protocol ResponseProtocol {
-    var statusCode: Int { get set }
-    var contentData: Data { get set }
-    var headerFields: [String: String] { get }
-}
-
-public struct Response: ResponseProtocol {
-    public var headerFields: [String: String]
-    public var statusCode: Int
-    public var contentData: Data
+public enum Download: ExpressibleByNilLiteral, Equatable {
     
-    public init(statusCode: Int = 200, headerFields: [String: String] = ["Content-Type": "application/json"], contentData: Data = Data()) {
-        self.headerFields = headerFields
-        self.contentData = contentData
-        
-        if contentData.isEmpty {
-            self.statusCode = 204
-        } else {
-            self.statusCode = statusCode
-        }
+    // Simulate download in one step
+    case content(Data)
+    
+    // Simulate download as byte stream
+    case streamContent(data: Data, inChunksOf: Int)
+    
+    // Simulate empty download
+    case noContent
+    
+    public init(nilLiteral: ()) {
+        self = .noContent
     }
 }
 
-extension Response: Equatable {
-    public static func == (lhs: Response, rhs: Response) -> Bool {
-        return lhs.statusCode == rhs.statusCode &&
-               lhs.contentData == rhs.contentData
+public func == (lhs: Download, rhs: Download) -> Bool {
+    switch (lhs, rhs) {
+    case let (.content(lhsData), .content(rhsData)):
+        return (lhsData == rhsData)
+    case let (.streamContent(data:lhsData, inChunksOf:lhsBytes), .streamContent(data:rhsData, inChunksOf:rhsBytes)):
+        return (lhsData == rhsData) && lhsBytes == rhsBytes
+    case (.noContent, .noContent):
+        return true
+    default:
+        return false
     }
 }
 
-extension Response {
-    public init(statusCode: Int = 200, filePath: String) throws {
-        self.init(statusCode: statusCode)
-        let url = URL(fileURLWithPath: filePath)
-        let data = try Data(contentsOf: url)
-        self.contentData = data
-    }
-    
-    public init(statusCode: Int = 200, contentData: Data) throws {
-        self.init(statusCode: statusCode)
-        self.contentData = contentData
-    }
-    
-    public init(statusCode: Int = 200, object: Any) throws {
-        self.init(statusCode: statusCode)
-        self.contentData = try JSONSerialization.data(withJSONObject: object, options: [])
+public enum Response: Equatable {
+    case success(URLResponse, Download)
+    case failure(NetworkHijack.Error)
+}
+
+public func == (lhs: Response, rhs: Response) -> Bool {
+    switch (lhs, rhs) {
+    case let (.failure(lhsError), .failure(rhsError)):
+        return lhsError == rhsError
+    case let (.success(lhsResponse, lhsDownload), .success(rhsResponse, rhsDownload)):
+        return lhsResponse == rhsResponse && lhsDownload == rhsDownload
+    default:
+        return false
     }
 }

@@ -11,7 +11,7 @@ import XCTest
 @testable import NetworkHijack
 
 fileprivate extension Route.Path {
-    static let fetchUsers = Route.Path("/users")
+    static let fetchUsers = Route.Path("users", httpMethod: .get)
 }
 
 class ResponseTests: XCTestCase {
@@ -23,19 +23,15 @@ class ResponseTests: XCTestCase {
     }()
     
     override func setUp() {
+        let body = [
+            [
+                "firstName": "Prince",
+                "lastName": "Ugwuh",
+                "email": "prince.ugwuh@gmail.com"
+            ]
+        ]
         
-        
-        NetworkHijack.default.addRoute(Route(
-            baseURL: URL(string: "http://localhost:8080")!,
-            path: .fetchUsers,
-            httpMethod: .get,
-            response: try! Response(object: [[
-                    "firstName": "Prince",
-                    "lastName": "Ugwuh",
-                    "email": "prince.ugwuh@gmail.com"
-                ]])
-            )
-        )
+        NetworkHijack.addRoute(Route(path: .fetchUsers, response: json(body)))
     }
     
     override func tearDown() {

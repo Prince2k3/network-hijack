@@ -1,49 +1,123 @@
 import Foundation
 
 public final class NetworkHijack: URLProtocol {
-    private var isCancelled: Bool = false
+    private var enableDownloading: Bool = true
+    private let operationQueue: OperationQueue = OperationQueue()
     
-    public static var `default`: Context = {
-        .init(redirect: InMemoryRedirect())
-    }()
+    static let redirect: Redirect = .init()
     
     static var redirectAllRequests: Bool = true
     
-    public override class func canInit(with request: URLRequest) -> Bool {
-        guard !self.redirectAllRequests else { return true }
-        return self.default.response(for: request) != nil
+    public override static func canInit(with request: URLRequest) -> Bool {
+        guard !redirectAllRequests else { return true }
+        return redirect.response(for: request) != nil
     }
     
-    public override class func canonicalRequest(for request: URLRequest) -> URLRequest {
+    public override static func canonicalRequest(for request: URLRequest) -> URLRequest {
         return request
     }
     
     public override func startLoading() {
-        self.isCancelled = false
-        
-        if let response = NetworkHijack.default.response(for: self.request) {
-            involkeResponse(toRequest: self.request, response: response)
+        if let response = NetworkHijack.redirect.response(for: request) {
+            involkeResponse(response)
         } else {
-            self.client?.urlProtocol(self, didFailWithError: NetworkHijack.Error.noResponseFound)
+            client?.urlProtocol(self, didFailWithError: NetworkHijack.Error.noResponseFound)
         }
     }
     
     public override func stopLoading() {
-        self.isCancelled = true
+        enableDownloading = false
+        operationQueue.cancelAllOperations()
     }
     
-    public func involkeResponse(toRequest request: URLRequest, response: ResponseProtocol) {
+    public func involkeResponse(_ response: Response) {
+        switch response {
+        case let .failure(error):
+            client?.urlProtocol(self, didFailWithError: error)
+        case .success(var response, let download):
+            let headers = self.request.allHTTPHeaderFields
+            
+            switch(download) {
+            case var .content(data):
+                applyRangeFromHTTPHeaders(headers, toData: &data, andUpdateResponse: &response)
+                client?.urlProtocol(self, didLoad: data)
+                client?.urlProtocolDidFinishLoading(self)
+            case .streamContent(data: var data, inChunksOf: let bytes):
+                applyRangeFromHTTPHeaders(headers, toData: &data, andUpdateResponse: &response)
+                self.download(data, inChunksOfBytes: bytes)
+            case .noContent:
+                client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
+                client?.urlProtocolDidFinishLoading(self)
+            }
+        }
+    }
+    
+    private func download(_ data: Data?, inChunksOfBytes bytes: Int) {
         guard
-            let url = request.url,
-            let urlResponse = HTTPURLResponse(url: url, statusCode: response.statusCode, httpVersion: "", headerFields: response.headerFields),
-            !self.isCancelled
+            let data = data
+            else { client?.urlProtocolDidFinishLoading(self) ; return }
+        
+        self.operationQueue.maxConcurrentOperationCount = 1
+        self.operationQueue.addOperation {
+            self.download(data, fromOffset: 0, withMaxLength: bytes)
+        }
+    }
+    
+    private func download(_ data: Data, fromOffset offset: Int, withMaxLength maxLength: Int) {
+        guard
+            let queue = OperationQueue.current
             else { return }
         
-        self.client?.urlProtocol(self, didReceive: urlResponse, cacheStoragePolicy: .allowedInMemoryOnly)
-        if !response.contentData.isEmpty {
-            self.client?.urlProtocol(self, didLoad: response.contentData)
+        guard
+            (offset < data.count)
+            else { client?.urlProtocolDidFinishLoading(self) ; return }
+        
+        let length = min(data.count - offset, maxLength)
+        
+        queue.addOperation { 
+            guard
+                self.enableDownloading
+                else { self.enableDownloading = true ; return }
+            
+            let subdata = data.subdata(in: offset ..< (offset + length))
+            self.client?.urlProtocol(self, didLoad: subdata)
+            Thread.sleep(forTimeInterval: 0.01)
+            self.download(data, fromOffset: offset + length, withMaxLength: maxLength)
         }
-        self.client?.urlProtocolDidFinishLoading(self)
+    }
+    
+    private func extractRangeFromHTTPHeaders(_ headers: [String : String]?) -> Range<Int>? {
+        guard
+            let rangeStr = headers?["Range"]
+            else { return nil }
+        
+        let range = rangeStr.components(separatedBy: "=")[1]
+                            .components(separatedBy: "-")
+                            .compactMap { Int($0) }
+        let loc = range[0]
+        let length = range[1] + 1
+        return loc..<length
+    }
+    
+    private func applyRangeFromHTTPHeaders(_ headers: [String : String]?, toData data: inout Data, andUpdateResponse response: inout URLResponse) {
+        
+        guard
+            let range = extractRangeFromHTTPHeaders(headers)
+            else { client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed) ; return }
+        
+        
+        let fullLength = data.count
+        data = data.subdata(in: range)
+        
+        //Attach new headers to response
+        if let r = response as? HTTPURLResponse {
+            var header = r.allHeaderFields as! [String:String]
+            header["Content-Length"] = String(data.count)
+            header["Content-Range"] = "bytes \(range.lowerBound)-\(range.upperBound)/\(fullLength)"
+            response = HTTPURLResponse(url: r.url!, statusCode: r.statusCode, httpVersion: nil, headerFields: header)!
+        }
+        
+        client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
     }
 }
 
@@ -63,12 +137,32 @@ extension NetworkHijack {
             protocolClasses.remove(at: index)
         }
     }
-    
-    public static func clearRoutes() {
-        self.default.clearRoutes()
+}
+
+// Redirect exposed
+
+extension NetworkHijack {
+    public static func addRoute(_ route: Route) {
+        redirect.addRoute(route)
     }
     
+    public static func addRoutes(_ routes: [Route]) {
+        redirect.addRoutes(routes)
+    }
+    
+    public static func clearRoutes() {
+        redirect.clearRoutes()
+    }
+    
+    public static func observe(_ path: Route.Path, handler: @escaping Redirect.ObservableHandler) {
+        redirect.observe(path, handler: handler)
+    }
+}
+
+// Routable
+
+extension NetworkHijack {
     public static func load<T: Routable>(_ routable: T.Type) {
-        self.default.addRoutes(routable.routes)
+        redirect.addRoutes(routable.routes)
     }
 }

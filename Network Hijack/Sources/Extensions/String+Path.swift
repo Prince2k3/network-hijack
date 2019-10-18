@@ -1,11 +1,3 @@
-//
-//  String+PathComponents.swift
-//  Network Hijack
-//
-//  Created by Prince Ugwuh on 2/27/19.
-//  Copyright © 2019 Prince Ugwuh. All rights reserved.
-//
-
 import Foundation
 
 extension String {
