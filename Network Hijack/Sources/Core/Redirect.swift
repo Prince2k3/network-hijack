@@ -1,44 +1,62 @@
 import Foundation
 
-public protocol Redirect {
-    var routes: [Route] { get set }
+public class Redirect {
+    public typealias ObservableHandler = ((Response?, URLRequest) -> Response?)
     
-    mutating func addRoute(_ route: Route)
+    private(set) var routes: [Route]  = []
     
-    func route(for path: Route.Path) -> Route?
-    func route(for urlRequest: URLRequest) -> Route?
-}
-
-extension Redirect {
-    public mutating func addRoute(_ route: Route) {
-        if !self.routes.contains(route) {
-            self.routes.append(route)
-            debugPrint(route)
+    public func response(for urlRequest: URLRequest) -> Response? {
+        guard
+            let route = self.route(for: urlRequest)
+            else { return nil }
+        
+        if let handler = observables[route.path] {
+            return handler(route.builder(urlRequest), urlRequest)
         }
+        
+        return route.builder(urlRequest)
+    }
+    
+    public func addRoute(_ route: Route) {
+        guard
+            !routes.contains(route)
+            else { return }
+        routes.append(route)
+        debugPrint(route)
+    }
+    
+    public func addRoutes(_ routes: [Route]) {
+        routes.forEach { addRoute($0) }
     }
     
     public func route(for path: Route.Path) -> Route? {
-        return self.routes.first { $0.path == path }
+        return routes.first { $0.path == path }
     }
     
     public func route(for urlRequest: URLRequest) -> Route? {
         guard
             let url = urlRequest.url,
             let httpMethod = urlRequest.httpMethod,
-            let components = URLComponents(url: url, resolvingAgainstBaseURL: false)
+            let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
             else { return nil }
         
-        return self.routes.first { route in
+        return routes.first { route in
             guard
-                route.fulfill(components.path.pathComponents),
+                route.fulfill(urlComponents.path.pathComponents),
                 httpMethod.lowercased() == route.httpMethod.rawValue.lowercased()
                 else { return false }
             
             return true
         }
     }
-}
-
-public struct InMemoryRedirect: Redirect {
-    public var routes: [Route] = []
+    
+    public func clearRoutes() {
+        self.routes = []
+    }
+    
+    public var observables: [Route.Path: ObservableHandler] = [:]
+    
+    public func observe(_ path: Route.Path, handler: @escaping ObservableHandler) {
+        observables[path] = handler
+    }
 }

@@ -1,11 +1,11 @@
 import Foundation
 
 extension NetworkHijack {
-    struct Error: LocalizedError {
-        private(set) var message: String
-        private(set) var error: Swift.Error?
+    public struct Error: LocalizedError {
+        public private(set) var message: String
+        public private(set) var error: Swift.Error?
         
-        var errorDescription: String? {
+        public var errorDescription: String? {
             return self.message
         }
         
@@ -17,7 +17,7 @@ extension NetworkHijack {
 }
 
 extension NetworkHijack.Error: Equatable {
-    static func == (lhs: NetworkHijack.Error, rhs: NetworkHijack.Error) -> Bool {
+    public static func == (lhs: NetworkHijack.Error, rhs: NetworkHijack.Error) -> Bool {
         return lhs.error?.localizedDescription == rhs.error?.localizedDescription &&
                lhs.message.caseInsensitiveCompare(rhs.message) == .orderedSame
     }

@@ -4,7 +4,7 @@ import Foundation
 @testable import NetworkHijack
 
 fileprivate extension Route.Path {
-    static let fetchUsers = Route.Path("users")
+    static let fetchUsers = Route.Path("users", httpMethod: .get)
 }
 
 struct User: Codable {
@@ -23,20 +23,15 @@ class EncodableResponseTests: XCTestCase {
 
     override func setUp() {
         
-        
-        NetworkHijack.default.addRoute(Route(
-            baseURL: URL(string: "http://localhost:8080")!,
-            path: .fetchUsers,
-            httpMethod: .get,
-            response: try! EncodableResponse(
-                model: [User(
-                        firstName: "Prince",
-                        lastName: "Ugwuh",
-                        email: "prince.ugwuh@gmail.com"
-                    )]
-                )
+        let body = [
+            User(
+                firstName: "Prince",
+                lastName: "Ugwuh",
+                email: "prince.ugwuh@gmail.com"
             )
-        )
+        ]
+        
+        NetworkHijack.addRoute(Route(path: .fetchUsers, response: json(body)))
     }
 
     override func tearDown() {

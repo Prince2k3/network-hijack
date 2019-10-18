@@ -18,9 +18,22 @@ extension Route.Component: CustomDebugStringConvertible {
     }
 }
 
-extension Route.Component {
-    static func components(of route: String) -> [Route.Component] {
-        let pathComponents = route.pathComponents
+extension Route.Component: Equatable {
+    static func == (lhs: Route.Component, rhs: Route.Component) -> Bool {
+        switch (lhs, rhs) {
+        case let (.path(lhsName), .path(rhsName)):
+            return (lhsName == rhsName)
+        case let (.placeholder(lhsName), .placeholder(rhsName)):
+            return (lhsName == rhsName)
+        default:
+            return false
+        }
+    }
+}
+
+extension Route {
+    static func makePathComponents(from routePath: Route.Path) -> [Route.Component] {
+        let pathComponents = routePath.value.pathComponents
         var components = [Route.Component]()
         
         for component in pathComponents {
@@ -37,18 +50,5 @@ extension Route.Component {
         }
         
         return components
-    }
-}
-
-extension Route.Component: Equatable {
-    static func == (lhs: Route.Component, rhs: Route.Component) -> Bool {
-        switch lhs {
-        case .path(let lhsName):
-            guard case .path(let rhsName) = rhs else { return false }
-            return (lhsName == rhsName)
-        case .placeholder(let lhsName):
-            guard case .placeholder(let rhsName) = rhs else { return false }
-            return (lhsName == rhsName)
-        }
     }
 }

@@ -7,26 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E5D56F3235A1C9A00083376 /* UniversalFramework_Framework.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 1E5D56EF235A1C9A00083376 /* UniversalFramework_Framework.xcconfig */; };
+		1E5D56F4235A1C9A00083376 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 1E5D56F0235A1C9A00083376 /* LICENSE */; };
+		1E5D56F5235A1C9A00083376 /* UniversalFramework_Base.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 1E5D56F1235A1C9A00083376 /* UniversalFramework_Base.xcconfig */; };
+		1E5D56F6235A1C9A00083376 /* UniversalFramework_Test.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 1E5D56F2235A1C9A00083376 /* UniversalFramework_Test.xcconfig */; };
+		1E5D56F9235A35C900083376 /* ResponseBuilders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5D56F8235A35C900083376 /* ResponseBuilders.swift */; };
+		1E5D56FC235A3E9600083376 /* Route+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5D56FB235A3E9600083376 /* Route+Path.swift */; };
+		1E5D56FE235A3EB000083376 /* Route+HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5D56FD235A3EB000083376 /* Route+HTTPMethod.swift */; };
 		1E9F4247222789EB007ABAA8 /* Error.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1EE1E02D2226F511003F8AB9 /* Error.swift */; settings = {ATTRIBUTES = (Public, ); }; };
-		1E9F4248222789EB007ABAA8 /* Context.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1EE1E0312226F64B003F8AB9 /* Context.swift */; settings = {ATTRIBUTES = (Public, ); }; };
-		1E9F4249222789EB007ABAA8 /* Redirect.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1EE1E02F2226F60F003F8AB9 /* Redirect.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		1E9F4248222789EB007ABAA8 /* Redirect.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1EE1E0312226F64B003F8AB9 /* Redirect.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E9F424A222789EB007ABAA8 /* Route.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1EE1E0332226F671003F8AB9 /* Route.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E9F424B222789EB007ABAA8 /* Route+Component.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1EE1E03A2226F70F003F8AB9 /* Route+Component.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E9F424C222789EB007ABAA8 /* Response.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1EE1E0352226F6AA003F8AB9 /* Response.swift */; settings = {ATTRIBUTES = (Public, ); }; };
-		1E9F424D222789EB007ABAA8 /* Reponse+Encodable.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1EE1E03D22270372003F8AB9 /* Reponse+Encodable.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E9F424E222789EB007ABAA8 /* NetworkHijack.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1EE1E02B2226F4C7003F8AB9 /* NetworkHijack.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 		1EE1E0192226F458003F8AB9 /* NetworkHijack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EE1E00F2226F458003F8AB9 /* NetworkHijack.framework */; };
 		1EE1E01E2226F458003F8AB9 /* EncodableResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE1E01D2226F458003F8AB9 /* EncodableResponseTests.swift */; };
 		1EE1E0202226F458003F8AB9 /* Network_Hijack.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EE1E0122226F458003F8AB9 /* Network_Hijack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1EE1E02C2226F4C7003F8AB9 /* NetworkHijack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE1E02B2226F4C7003F8AB9 /* NetworkHijack.swift */; };
 		1EE1E02E2226F511003F8AB9 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE1E02D2226F511003F8AB9 /* Error.swift */; };
-		1EE1E0302226F60F003F8AB9 /* Redirect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE1E02F2226F60F003F8AB9 /* Redirect.swift */; };
-		1EE1E0322226F64B003F8AB9 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE1E0312226F64B003F8AB9 /* Context.swift */; };
+		1EE1E0322226F64B003F8AB9 /* Redirect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE1E0312226F64B003F8AB9 /* Redirect.swift */; };
 		1EE1E0342226F671003F8AB9 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE1E0332226F671003F8AB9 /* Route.swift */; };
 		1EE1E0362226F6AA003F8AB9 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE1E0352226F6AA003F8AB9 /* Response.swift */; };
-		1EE1E0392226F6F2003F8AB9 /* String+PathComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE1E0382226F6F2003F8AB9 /* String+PathComponents.swift */; };
+		1EE1E0392226F6F2003F8AB9 /* String+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE1E0382226F6F2003F8AB9 /* String+Path.swift */; };
 		1EE1E03B2226F70F003F8AB9 /* Route+Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE1E03A2226F70F003F8AB9 /* Route+Component.swift */; };
-		1EE1E03E22270372003F8AB9 /* Reponse+Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE1E03D22270372003F8AB9 /* Reponse+Encodable.swift */; };
 		1EE1E04622271FC3003F8AB9 /* ResponseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE1E04522271FC3003F8AB9 /* ResponseTest.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +44,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E5D56EF235A1C9A00083376 /* UniversalFramework_Framework.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = UniversalFramework_Framework.xcconfig; sourceTree = "<group>"; };
+		1E5D56F0235A1C9A00083376 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		1E5D56F1235A1C9A00083376 /* UniversalFramework_Base.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = UniversalFramework_Base.xcconfig; sourceTree = "<group>"; };
+		1E5D56F2235A1C9A00083376 /* UniversalFramework_Test.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = UniversalFramework_Test.xcconfig; sourceTree = "<group>"; };
+		1E5D56F8235A35C900083376 /* ResponseBuilders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseBuilders.swift; sourceTree = "<group>"; };
+		1E5D56FB235A3E9600083376 /* Route+Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Route+Path.swift"; sourceTree = "<group>"; };
+		1E5D56FD235A3EB000083376 /* Route+HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Route+HTTPMethod.swift"; sourceTree = "<group>"; };
 		1EC4569D2308B84C00430E08 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Package.swift; sourceTree = "<group>"; };
 		1EE1E00F2226F458003F8AB9 /* NetworkHijack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NetworkHijack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EE1E0122226F458003F8AB9 /* Network_Hijack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Network_Hijack.h; sourceTree = "<group>"; };
@@ -50,13 +60,11 @@
 		1EE1E01F2226F458003F8AB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1EE1E02B2226F4C7003F8AB9 /* NetworkHijack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHijack.swift; sourceTree = "<group>"; };
 		1EE1E02D2226F511003F8AB9 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
-		1EE1E02F2226F60F003F8AB9 /* Redirect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Redirect.swift; sourceTree = "<group>"; };
-		1EE1E0312226F64B003F8AB9 /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
+		1EE1E0312226F64B003F8AB9 /* Redirect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Redirect.swift; sourceTree = "<group>"; };
 		1EE1E0332226F671003F8AB9 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		1EE1E0352226F6AA003F8AB9 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
-		1EE1E0382226F6F2003F8AB9 /* String+PathComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+PathComponents.swift"; sourceTree = "<group>"; };
+		1EE1E0382226F6F2003F8AB9 /* String+Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Path.swift"; sourceTree = "<group>"; };
 		1EE1E03A2226F70F003F8AB9 /* Route+Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Route+Component.swift"; sourceTree = "<group>"; };
-		1EE1E03D22270372003F8AB9 /* Reponse+Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reponse+Encodable.swift"; sourceTree = "<group>"; };
 		1EE1E04522271FC3003F8AB9 /* ResponseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,9 +87,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E5D56EE235A1C9A00083376 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				1E5D56F0235A1C9A00083376 /* LICENSE */,
+				1E5D56EF235A1C9A00083376 /* UniversalFramework_Framework.xcconfig */,
+				1E5D56F1235A1C9A00083376 /* UniversalFramework_Base.xcconfig */,
+				1E5D56F2235A1C9A00083376 /* UniversalFramework_Test.xcconfig */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+		1E5D56FA235A3E4E00083376 /* Route */ = {
+			isa = PBXGroup;
+			children = (
+				1EE1E0332226F671003F8AB9 /* Route.swift */,
+				1EE1E03A2226F70F003F8AB9 /* Route+Component.swift */,
+				1E5D56FB235A3E9600083376 /* Route+Path.swift */,
+				1E5D56FD235A3EB000083376 /* Route+HTTPMethod.swift */,
+			);
+			path = Route;
+			sourceTree = "<group>";
+		};
 		1EE1E0052226F458003F8AB9 = {
 			isa = PBXGroup;
 			children = (
+				1E5D56EE235A1C9A00083376 /* Configurations */,
 				1EE1E0112226F458003F8AB9 /* Network Hijack */,
 				1EE1E01C2226F458003F8AB9 /* Network HijackTests */,
 				1EE1E0102226F458003F8AB9 /* Products */,
@@ -131,7 +162,7 @@
 		1EE1E0372226F6DF003F8AB9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				1EE1E0382226F6F2003F8AB9 /* String+PathComponents.swift */,
+				1EE1E0382226F6F2003F8AB9 /* String+Path.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -139,13 +170,11 @@
 		1EE1E03C2226F8E5003F8AB9 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				1E5D56FA235A3E4E00083376 /* Route */,
 				1EE1E02D2226F511003F8AB9 /* Error.swift */,
-				1EE1E0312226F64B003F8AB9 /* Context.swift */,
-				1EE1E02F2226F60F003F8AB9 /* Redirect.swift */,
-				1EE1E0332226F671003F8AB9 /* Route.swift */,
-				1EE1E03A2226F70F003F8AB9 /* Route+Component.swift */,
+				1EE1E0312226F64B003F8AB9 /* Redirect.swift */,
 				1EE1E0352226F6AA003F8AB9 /* Response.swift */,
-				1EE1E03D22270372003F8AB9 /* Reponse+Encodable.swift */,
+				1E5D56F8235A35C900083376 /* ResponseBuilders.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -159,12 +188,10 @@
 			files = (
 				1EE1E0202226F458003F8AB9 /* Network_Hijack.h in Headers */,
 				1E9F4247222789EB007ABAA8 /* Error.swift in Headers */,
-				1E9F4248222789EB007ABAA8 /* Context.swift in Headers */,
-				1E9F4249222789EB007ABAA8 /* Redirect.swift in Headers */,
+				1E9F4248222789EB007ABAA8 /* Redirect.swift in Headers */,
 				1E9F424A222789EB007ABAA8 /* Route.swift in Headers */,
 				1E9F424B222789EB007ABAA8 /* Route+Component.swift in Headers */,
 				1E9F424C222789EB007ABAA8 /* Response.swift in Headers */,
-				1E9F424D222789EB007ABAA8 /* Reponse+Encodable.swift in Headers */,
 				1E9F424E222789EB007ABAA8 /* NetworkHijack.swift in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -232,6 +259,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 1EE1E0052226F458003F8AB9;
 			productRefGroup = 1EE1E0102226F458003F8AB9 /* Products */;
@@ -249,6 +277,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E5D56F4235A1C9A00083376 /* LICENSE in Resources */,
+				1E5D56F3235A1C9A00083376 /* UniversalFramework_Framework.xcconfig in Resources */,
+				1E5D56F6235A1C9A00083376 /* UniversalFramework_Test.xcconfig in Resources */,
+				1E5D56F5235A1C9A00083376 /* UniversalFramework_Base.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,15 +298,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EE1E0392226F6F2003F8AB9 /* String+PathComponents.swift in Sources */,
+				1EE1E0392226F6F2003F8AB9 /* String+Path.swift in Sources */,
 				1EE1E02C2226F4C7003F8AB9 /* NetworkHijack.swift in Sources */,
-				1EE1E0322226F64B003F8AB9 /* Context.swift in Sources */,
-				1EE1E03E22270372003F8AB9 /* Reponse+Encodable.swift in Sources */,
+				1E5D56F9235A35C900083376 /* ResponseBuilders.swift in Sources */,
+				1EE1E0322226F64B003F8AB9 /* Redirect.swift in Sources */,
+				1E5D56FC235A3E9600083376 /* Route+Path.swift in Sources */,
 				1EE1E02E2226F511003F8AB9 /* Error.swift in Sources */,
 				1EE1E0342226F671003F8AB9 /* Route.swift in Sources */,
 				1EE1E03B2226F70F003F8AB9 /* Route+Component.swift in Sources */,
+				1E5D56FE235A3EB000083376 /* Route+HTTPMethod.swift in Sources */,
 				1EE1E0362226F6AA003F8AB9 /* Response.swift in Sources */,
-				1EE1E0302226F60F003F8AB9 /* Redirect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,10 +455,13 @@
 		};
 		1EE1E0242226F458003F8AB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E5D56EF235A1C9A00083376 /* UniversalFramework_Framework.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = P7LU4G83GL;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -447,10 +483,13 @@
 		};
 		1EE1E0252226F458003F8AB9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E5D56EF235A1C9A00083376 /* UniversalFramework_Framework.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = P7LU4G83GL;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -472,9 +511,11 @@
 		};
 		1EE1E0272226F458003F8AB9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E5D56F2235A1C9A00083376 /* UniversalFramework_Test.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P7LU4G83GL;
 				INFOPLIST_FILE = "Network HijackTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -490,9 +531,11 @@
 		};
 		1EE1E0282226F458003F8AB9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E5D56F2235A1C9A00083376 /* UniversalFramework_Test.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P7LU4G83GL;
 				INFOPLIST_FILE = "Network HijackTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
