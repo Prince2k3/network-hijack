@@ -15,7 +15,7 @@ public struct Route: Equatable {
     
     private var pathComponents: [Route.Component]
     
-    init(path: Route.Path, delay: TimeInterval? = nil, response builder: @escaping ResponseBuilder) {
+    public init(path: Route.Path, delay: TimeInterval? = nil, response builder: @escaping ResponseBuilder) {
         self.path = path
         self.delay = delay
         self.builder = builder
