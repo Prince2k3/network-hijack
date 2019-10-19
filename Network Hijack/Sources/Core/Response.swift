@@ -25,13 +25,17 @@ public func == (lhs: Download, rhs: Download) -> Bool {
 
 public enum Response: Equatable {
     case success(URLResponse, Download)
-    case failure(NetworkHijack.Error)
+    case failure(LocalizedError)
 }
 
 public func == (lhs: Response, rhs: Response) -> Bool {
     switch (lhs, rhs) {
     case let (.failure(lhsError), .failure(rhsError)):
-        return lhsError == rhsError
+        return lhsError.errorDescription == rhsError.errorDescription &&
+        lhsError.failureReason == rhsError.failureReason &&
+        lhsError.helpAnchor == rhsError.helpAnchor &&
+        lhsError.recoverySuggestion == rhsError.recoverySuggestion
+        
     case let (.success(lhsResponse, lhsDownload), .success(rhsResponse, rhsDownload)):
         return lhsResponse == rhsResponse && lhsDownload == rhsDownload
     default:

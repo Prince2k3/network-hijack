@@ -1,8 +1,8 @@
 import Foundation
 
-public func failure(_ error: Error) -> (_ request: URLRequest) -> Response {
+public func failure(_ error: Error? = nil, message: String = "") -> (_ request: URLRequest) -> Response {
     return { _ in
-        return .failure(NetworkHijack.Error(error: error, message: error.localizedDescription))
+        return .failure(NetworkHijack.Error(error: error, message: message))
     }
 }
 
@@ -12,7 +12,7 @@ public func http(_ status: Int = 200, headers: [String: String]? = nil, download
             return Response.success(response, download)
         }
         
-        return .failure(NetworkHijack.Error(message: "Failed to make response"))
+        return failure(message: "Failed to make response")(request)
     }
 }
 
@@ -22,7 +22,7 @@ public func json(_ body: Any, status: Int = 200, headers: [String: String]? = ni
             let data = try JSONSerialization.data(withJSONObject: body, options: JSONSerialization.WritingOptions())
             return jsonData(data, status: status, headers: headers)(request)
         }
-        catch { return .failure(NetworkHijack.Error(error: error, message: error.localizedDescription)) }
+        catch { return failure(error, message: error.localizedDescription)(request) }
     }
 }
 
@@ -32,7 +32,7 @@ public func json<T: Encodable>(_ body: T, status: Int = 200, headers: [String: S
             let data = try encoder.encode(body)
             return jsonData(data, status: status, headers: headers)(request)
         }
-        catch { return .failure(NetworkHijack.Error(error: error, message: error.localizedDescription)) }
+        catch { return failure(error, message: error.localizedDescription)(request) }
     }
 }
 
@@ -45,7 +45,7 @@ public func json(filename: String, status: Int = 200, headers: [String: String]?
             let data = try Data(contentsOf: URL(fileURLWithPath: path))
             return jsonData(data, status: status, headers: headers)(request)
         }
-        catch { return .failure(NetworkHijack.Error(error: error, message: error.localizedDescription)) }
+        catch { return failure(error, message: error.localizedDescription)(request) }
     }
 }
 
