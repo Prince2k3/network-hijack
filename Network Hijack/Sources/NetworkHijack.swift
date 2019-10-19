@@ -5,12 +5,9 @@ public final class NetworkHijack: URLProtocol {
     private let operationQueue: OperationQueue = OperationQueue()
     
     static let redirect: Redirect = .init()
-    
-    static var redirectAllRequests: Bool = true
-    
+
     public override static func canInit(with request: URLRequest) -> Bool {
-        guard !redirectAllRequests else { return true }
-        return redirect.response(for: request) != nil
+        return true
     }
     
     public override static func canonicalRequest(for request: URLRequest) -> URLRequest {
@@ -69,7 +66,7 @@ public final class NetworkHijack: URLProtocol {
             else { return }
         
         guard
-            (offset < data.count)
+            offset < data.count
             else { client?.urlProtocolDidFinishLoading(self) ; return }
         
         let length = min(data.count - offset, maxLength)
@@ -165,4 +162,11 @@ extension NetworkHijack {
     public static func load<T: Routable>(_ routable: T.Type) {
         redirect.addRoutes(routable.routes)
     }
+}
+
+//
+
+public func route(path: Route.Path, delay: TimeInterval? = nil, response builder: @escaping ResponseBuilder) {
+    let route = Route(path: path, delay: delay, response: builder)
+    NetworkHijack.addRoute(route)
 }

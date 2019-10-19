@@ -2,6 +2,7 @@ import Foundation
 
 public class Redirect {
     public typealias ObservableHandler = ((Response?, URLRequest) -> Response?)
+    public var observables: [Route.Path: ObservableHandler] = [:]
     
     private(set) var routes: [Route]  = []
     
@@ -53,8 +54,6 @@ public class Redirect {
     public func clearRoutes() {
         self.routes = []
     }
-    
-    public var observables: [Route.Path: ObservableHandler] = [:]
     
     public func observe(_ path: Route.Path, handler: @escaping ObservableHandler) {
         observables[path] = handler

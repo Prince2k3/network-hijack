@@ -1,14 +1,8 @@
 import Foundation
 
 public enum Download: ExpressibleByNilLiteral, Equatable {
-    
-    // Simulate download in one step
     case content(Data)
-    
-    // Simulate download as byte stream
     case streamContent(data: Data, inChunksOf: Int)
-    
-    // Simulate empty download
     case noContent
     
     public init(nilLiteral: ()) {

@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E5D56F3235A1C9A00083376 /* UniversalFramework_Framework.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 1E5D56EF235A1C9A00083376 /* UniversalFramework_Framework.xcconfig */; };
 		1E5D56F4235A1C9A00083376 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 1E5D56F0235A1C9A00083376 /* LICENSE */; };
-		1E5D56F5235A1C9A00083376 /* UniversalFramework_Base.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 1E5D56F1235A1C9A00083376 /* UniversalFramework_Base.xcconfig */; };
-		1E5D56F6235A1C9A00083376 /* UniversalFramework_Test.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 1E5D56F2235A1C9A00083376 /* UniversalFramework_Test.xcconfig */; };
 		1E5D56F9235A35C900083376 /* ResponseBuilders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5D56F8235A35C900083376 /* ResponseBuilders.swift */; };
 		1E5D56FC235A3E9600083376 /* Route+Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5D56FB235A3E9600083376 /* Route+Path.swift */; };
 		1E5D56FE235A3EB000083376 /* Route+HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5D56FD235A3EB000083376 /* Route+HTTPMethod.swift */; };
@@ -242,14 +239,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "Prince Ugwuh";
 				TargetAttributes = {
 					1EE1E00E2226F458003F8AB9 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1100;
 					};
 					1EE1E0172226F458003F8AB9 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1100;
 					};
 				};
 			};
@@ -278,9 +277,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E5D56F4235A1C9A00083376 /* LICENSE in Resources */,
-				1E5D56F3235A1C9A00083376 /* UniversalFramework_Framework.xcconfig in Resources */,
-				1E5D56F6235A1C9A00083376 /* UniversalFramework_Test.xcconfig in Resources */,
-				1E5D56F5235A1C9A00083376 /* UniversalFramework_Base.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,7 +453,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1E5D56EF235A1C9A00083376 /* UniversalFramework_Framework.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -476,7 +472,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.prince2k3.Network-Hijack";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -485,7 +481,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1E5D56EF235A1C9A00083376 /* UniversalFramework_Framework.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -504,7 +500,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.prince2k3.Network-Hijack";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -524,7 +520,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.prince2k3.Network-HijackTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -544,7 +540,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.prince2k3.Network-HijackTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
