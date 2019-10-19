@@ -13,7 +13,7 @@ public struct Route: Equatable {
     public let delay: TimeInterval?
     public let builder: ResponseBuilder
     
-    private var pathComponents: [Route.Component]
+    private var routeComponents: [Route.Component]
     
     public init(path: Route.Path, delay: TimeInterval? = nil, response builder: @escaping ResponseBuilder) {
         self.path = path
@@ -21,19 +21,19 @@ public struct Route: Equatable {
         self.builder = builder
         self.id = UUID()
         
-        self.pathComponents = Route.makePathComponents(from: path)
+        self.routeComponents = Route.makePathComponents(from: path)
     }
     
     func fulfill(_ pathComponents: [String]) -> Bool {
-        var remainingRouteComponents = pathComponents
+        var remainingRouteComponents = self.routeComponents
         
         for (index, component) in pathComponents.enumerated() {
             guard
-                pathComponents.count >= index + 1
+                self.routeComponents.count >= index + 1
                 else { return false }
             remainingRouteComponents.remove(at: 0)
             
-            switch self.pathComponents[index] {
+            switch self.routeComponents[index] {
             case let .path(name) where name != component:
                 return false
             default: break
